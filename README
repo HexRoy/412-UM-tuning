@@ -1,0 +1,20 @@
+Patrick Feeney
+
+Received help from only professor and TAs.
+
+Everything has been correctly implemented.
+
+Added bitpack32 which is a wrapper around the bitpack library. Everything else similar to design.
+
+um includes instruction and memory and calls the initializing functions and runs the execute loop. It just hides the initialization and main loop.
+bitpack32 includes bitpack and acts as a wrapper for the functions, casting them to the types I need. It abstracts casting bitpack calls.
+memory includes the CII table header. It hides how the registers and segments are implemented. Registers are implemented as an array of uint32_t. Segments are implemented as entries in a Hanson table, with the keys as the segment identifier and a struct with the segment size and array of segment words.
+instructions includes memory and bitpack32. It hides all of the logic of the UM. Its only public function is execute, which will run the next instruction. The execute function parses the instruction and executes the private function corresponding to the opcode.
+
+My UM takes ~10.6 seconds to execute 50 million instructions. I know this because my UM takes ~18 seconds to execute midmark, which executes about 85 million instructions, and 18*50/85 = 10.6.
+
+.5 hours spent analyzing
+
+1 hour spent preparing design
+
+5 hours spent solving the problem
