@@ -1,7 +1,6 @@
 #include "instruction.h"
 
 uint32_t progCounter = 0;
-enum ops {CMV = 0, SLOAD, SSTORE, ADD, MULT, DIVIDE, NAND, HALT, MAP, UMAP, OUT, IN, LOADP, LOADV};
 const uint32_t MAX32 = 4294967295;
 
 //if r[C] != 0 then r[A] = r[B]
