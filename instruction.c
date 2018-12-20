@@ -102,7 +102,7 @@ int execute()
 	//fprintf(stderr, "%u\n", (unsigned)instruction);
 	uint32_t opcode = get32u(instruction, 4, 28);
 	//fprintf(stderr, "%u\n", (unsigned)opcode);
-	if(opcode != LOADV)
+	if(opcode != 13)
 	{
 		uint32_t regA = get32u(instruction, 3, 6);
 		uint32_t regB = get32u(instruction, 3, 3);
@@ -110,43 +110,43 @@ int execute()
 		//fprintf(stderr, "%u %u %u\n", (unsigned)regA, (unsigned)regB, (unsigned)regC);
 		switch(opcode)
 		{
-			case CMV:
+			case 0:
 				CMove(regA, regB, regC);
 				break;
-			case SLOAD:
+			case 1:
 				SLoad(regA, regB, regC);
 				break;
-			case SSTORE:
+			case 2:
 				SStore(regA, regB, regC);
 				break;
-			case ADD:
+			case 3:
 				Add(regA, regB, regC);
 				break;
-			case MULT:
+			case 4:
 				Mult(regA, regB, regC);
 				break;
-			case DIVIDE:
+			case 5:
 				Div(regA, regB, regC);
 				break;
-			case NAND:
+			case 6:
 				Nand(regA, regB, regC);
 				break;
-			case HALT:
+			case 7:
 				return -1;
 				break;
-			case MAP:
+			case 8:
 				Map(regB, regC);
 				break;
-			case UMAP:
+			case 9:
 				Unmap(regC);
 				break;
-			case OUT:
+			case 10:
 				Out(regC);
 				break;
-			case IN:
+			case 11:
 				In(regC);
 				break;
-			case LOADP:
+			case 12:
 				LoadP(regB, regC);
 				break;
 			default:
@@ -161,7 +161,7 @@ int execute()
 		LoadV(regA, val);
 		//fprintf(stderr, "%u %u\n", (unsigned)regA, (unsigned)val);
 	}
-	if(opcode != LOADP)
+	if(opcode != 12)
 		progCounter++;
 	return 0;
 }
