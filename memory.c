@@ -184,3 +184,18 @@ void setSeg(uint32_t segNum, uint32_t addr, uint32_t val)
 	}
 	v->array[addr] = val;
 }
+
+void dumpMem() 
+{
+	segIndex = 1;
+	while (Table_get(segs, &segIndex != NULL) {
+		unmapSeg(segIndex);
+		segIndex++;
+	}
+	segIndex = 0;
+	Value seg0 = Table_get(segs, &segIndex);
+	free(seg0->array);
+	free(seg0->key);
+	Table_remove(segs, &segIndex);
+	free(seg0);
+}
