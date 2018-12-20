@@ -193,7 +193,7 @@ void dumpMem()
 		segIndex++;
 	}
 	segIndex = 0;
-	Value seg0 = Table_get(segs, &segIndex);
+	Value *seg0 = Table_get(segs, &segIndex);
 	free(seg0->array);
 	free(seg0->key);
 	Table_remove(segs, &segIndex);
