@@ -188,7 +188,7 @@ void setSeg(uint32_t segNum, uint32_t addr, uint32_t val)
 void dumpMem() 
 {
 	segIndex = 1;
-	while (Table_get(segs, &segIndex != NULL) {
+	while (Table_get(segs, &segIndex) != NULL) {
 		unmapSeg(segIndex);
 		segIndex++;
 	}
