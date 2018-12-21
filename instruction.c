@@ -13,7 +13,8 @@ void CMove(uint32_t regA, uint32_t regB, uint32_t regC)
 //r[A] = m[r[B]][r[C]]
 void SLoad(uint32_t regA, uint32_t regB, uint32_t regC)
 {
-	setReg(regA, getSeg(getReg(regB), getReg(regC)));
+	//setReg(regA, getSeg(getReg(regB), getReg(regC)));
+        reg[regA] = getSeg(getReg(regB), getReg(regC));
 }
 
 //m[r[A]][r[B]] = r[C]
