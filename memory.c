@@ -155,16 +155,7 @@ void dupeSeg(uint32_t segNum)
 uint32_t getSeg(uint32_t segNum, uint32_t addr)
 {
 	Value *v = Table_get(segs, &segNum);
-	if(v == NULL)
-	{
-		fprintf(stderr, "Attempting to set unmapped segment %u.\n", (unsigned)segNum);
-		exit(1);
-	}
-	if(addr >= v->size)
-	{
-		fprintf(stderr, "Invalid segment get: %u[%u] when size only %u.\n", (unsigned)segNum, (unsigned)addr, (unsigned)v->size);
-		exit(1);
-	}
+
 	return v->array[addr];
 }
 
@@ -172,15 +163,6 @@ uint32_t getSeg(uint32_t segNum, uint32_t addr)
 void setSeg(uint32_t segNum, uint32_t addr, uint32_t val)
 {
 	Value *v = Table_get(segs, &segNum);
-	if(v == NULL)
-	{
-		fprintf(stderr, "Attempting to set unmapped segment [%u].\n", (unsigned)segNum);
-		exit(1);
-	}
-	if(addr >= v->size)
-	{
-		fprintf(stderr, "Invalid segment set: [%u][%u] when size only %u.\n", (unsigned)segNum, (unsigned)addr, (unsigned)v->size);
-		exit(1);
-	}
+	
 	v->array[addr] = val;
 }
