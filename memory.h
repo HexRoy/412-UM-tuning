@@ -30,5 +30,3 @@ uint32_t getSeg(uint32_t segNum, uint32_t addr);
 
 //set segment value
 void setSeg(uint32_t segNum, uint32_t addr, uint32_t val);
-
-void dumpMem();

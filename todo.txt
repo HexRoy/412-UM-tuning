@@ -1,0 +1,24 @@
+Look into:
+	Table_get (um:table.c)
+	Table_put (um:table.c)
+	Table_remove (um:table.c)
+
+Possible changes:
+
+noticed get32u is being called alot. All that it contains is a return, so to increase speed, instead of calling get32u, just call what that function is returning.
+	in bitpack32.c. however it will stil make the same number of calls to bitpackget_u
+		instead of having it call get32u, just return the return value?
+
+
+
+Cannot change?: 
+	
+	getSeg:
+		is already super short, 2 if statements with one line of code inand a return. 
+
+	getReg: 
+		super short. only one if and a return.
+	setReg: 
+		only one if and a return
+
+

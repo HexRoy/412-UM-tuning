@@ -99,13 +99,16 @@ int execute()
 {
 	uint32_t instruction = getSeg(0, progCounter);
 	//fprintf(stderr, "%u\n", (unsigned)instruction);
-	uint32_t opcode = get32u(instruction, 4, 28);
+	
+        
+        uint32_t opcode = (uint32_t)Bitpack_getu((uint64_t)instruction, 4, 28);
+        
 	//fprintf(stderr, "%u\n", (unsigned)opcode);
 	if(opcode != 13)
 	{
-		uint32_t regA = get32u(instruction, 3, 6);
-		uint32_t regB = get32u(instruction, 3, 3);
-		uint32_t regC = get32u(instruction, 3, 0);
+		uint32_t regA = (uint32_t)Bitpack_getu((uint64_t)instruction, 3, 6);
+		uint32_t regB = (uint32_t)Bitpack_getu((uint64_t)instruction, 3, 3);
+		uint32_t regC = (uint32_t)Bitpack_getu((uint64_t)instruction, 3, 0);
 		//fprintf(stderr, "%u %u %u\n", (unsigned)regA, (unsigned)regB, (unsigned)regC);
 		switch(opcode)
 		{
@@ -155,8 +158,8 @@ int execute()
 	}
 	else
 	{
-		uint32_t regA = get32u(instruction, 3, 25);
-		uint32_t val = get32u(instruction, 25, 0);
+		uint32_t regA = (uint32_t)Bitpack_getu((uint64_t)instruction, 3, 25);
+		uint32_t val = (uint32_t)Bitpack_getu((uint64_t)instruction, 25, 0);
 		LoadV(regA, val);
 		//fprintf(stderr, "%u %u\n", (unsigned)regA, (unsigned)val);
 	}

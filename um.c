@@ -14,6 +14,5 @@ int main(int argc, char **argv)
 	loadProgramFile(argv[1]);
 	while(execute() != -1)
 		continue;
-	dumpMem();
 	return 0;
 }
