@@ -1,0 +1,7 @@
+#!/bin/sh
+
+for i in midmark.um sandmark.umz
+
+do
+	time -f "um $i: %e seconds" um $i
+done
