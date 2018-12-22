@@ -13,7 +13,7 @@ case $1 in
 esac
 
 # use 'gcc' as the C compiler (at home, you could try 'clang')
-CC=gcc -0
+CC=gcc -01
 
 # the next three lines enable you to compile and link against course software
 CFLAGS="-I. -I/csc/411/include -I/usr/local/cii/include -I/usr/local/include"
