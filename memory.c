@@ -75,22 +75,12 @@ void loadProgramFile(char *programPath)
 //get register value
 uint32_t getReg(uint32_t index)
 {
-	if(index > 7)
-	{
-		fprintf(stderr, "Invalid register get: %u.\n", (unsigned)index);
-		exit(1);
-	}
 	return reg[index];
 }
 
 //set register value
 void setReg(uint32_t index, uint32_t value)
 {
-	if(index > 7)
-	{
-		fprintf(stderr, "Invalid register set: %u.\n", (unsigned)index);
-		exit(1);
-	}
 	reg[index] = value;
 }
 
